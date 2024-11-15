@@ -116,7 +116,7 @@ if __name__ == '__main__':
 
     num_of_diffeo = 20
 
-    diffeo_freq_band_list = [[0,3], [10,11], [20,21], [30,31], [40,41]]
+    diffeo_freq_band_list = [[0,5], [10,11], [20,21], [30,31], [40,41]]
 
     inference_res = 224
 
