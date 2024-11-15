@@ -1,4 +1,5 @@
 import torchvision
+import copy
 
 class ModelsWithIMAGENET1K_V1:
   '''
@@ -120,7 +121,9 @@ class ModelsWithIMAGENET1K_V1:
       self.models.pop(name, None)
 
   def remove_ModelsWithOut224x224(self):
-    for name in self.models.keys():
+    current_models = copy.deepcopy(self.models)
+
+    for name in current_models.keys():
       try:
         crop_size = torchvision.models.get_model_weights(name).IMAGENET1K_V1.transforms.keywords['crop_size']
         if crop_size != 224:
