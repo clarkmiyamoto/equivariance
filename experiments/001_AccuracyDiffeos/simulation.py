@@ -42,7 +42,7 @@ def get_diffeo_container(x_range, y_range, num_of_terms, diffeo_strength_list = 
   diffeo_container.to(device)
   return diffeo_container
 
-def get_Images(dataLoader: "iterable", num_of_images = num_of_images):
+def get_Images(dataLoader: "iterable", num_of_images: int):
   '''
   returns the images and the correct labels
   '''
@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
     print('model & dataset setup finished', flush = True)
 
-    val_images, labels = get_Images(data_iter)
+    val_images, labels = get_Images(data_iter, num_of_images)
     val_images = val_images.to(device)
     labels = labels.to(device)
 
