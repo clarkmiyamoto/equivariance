@@ -11,6 +11,7 @@ from torchvision.transforms import v2
 
 from models import ModelsWithIMAGENET1K_V1
 
+
 def get_model(name):
   subset_of_models = ModelsWithIMAGENET1K_V1()
   model = subset_of_models.init_model(name).to(device)
@@ -33,7 +34,7 @@ def get_ImageNet(transforms = None, batch_size = 1, shuffle = False):
   dataloader = t.utils.data.DataLoader(dataset, batch_size = batch_size, shuffle = shuffle)
   return dataset, dataloader
 
-def get_diffeo_container(x_range, y_range, num_of_terms, diffeo_strength_list = None, num_of_didffeo = None, res = inference_res):
+def get_diffeo_container(x_range, y_range, num_of_terms, diffeo_strength_list = None, num_of_didffeo = None, res=None):
   diffeo_container = sparse_diffeo_container(res, res)
   for strength in diffeo_strength_list:
       diffeo_container.sparse_AB_append(x_range, y_range, num_of_terms, strength, num_of_didffeo)
@@ -145,7 +146,7 @@ if __name__ == '__main__':
     los_list = []
     for band_limit in diffeo_freq_band_list:
         batch_size = [len(diffeo_strengths), num_of_diffeo]
-        diffeos = get_diffeo_container(band_limit, band_limit, 1, diffeo_strengths, num_of_diffeo)
+        diffeos = get_diffeo_container(band_limit, band_limit, 1, diffeo_strengths, num_of_diffeo, res=inference_res)
         accuracy, loss = get_accuracy_for_band(model, loss_fn, val_images, labels, diffeos, batch_size)
         acc_avg = t.mean(accuracy, dim = (0 , 2))
         loss_avg = t.mean(loss, dim = (0 , 2))
