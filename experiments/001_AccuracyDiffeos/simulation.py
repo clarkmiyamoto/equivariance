@@ -98,6 +98,7 @@ if __name__ == '__main__':
     ### Parser
     parser = argparse.ArgumentParser(description="Script to use a specific model.")
     parser.add_argument("--model_name", type=str, required=True, help="Name of the model to use")
+    parser.add_argument("--num_images", type=int, required=True, help="Number of images to average over")
     args = parser.parse_args()
     
     ### Parameters
@@ -111,7 +112,7 @@ if __name__ == '__main__':
     ImageNet_path = '/imagenet'
     data_save_path = '/vast/xj2173/diffeo/model_accuracy'
 
-    num_of_images = 1000
+    num_of_images = args.num_images
 
     diffeo_strengths = [0, 0.00001, 0.0001, 0.0005, 0.001, 0.005, 0.01, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175]
 
