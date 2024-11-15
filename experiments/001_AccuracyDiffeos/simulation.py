@@ -116,7 +116,7 @@ if __name__ == '__main__':
 
     diffeo_strengths = [0, 0.00001, 0.0001, 0.0005, 0.001, 0.005, 0.01, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175]
 
-    num_of_diffeo = 20
+    num_of_diffeo = 50
 
     diffeo_freq_band_list = [[0,5], [10,11], [20,21], [30,31], [40,41]]
 
@@ -147,7 +147,7 @@ if __name__ == '__main__':
     los_list = []
     for band_limit in diffeo_freq_band_list:
         batch_size = [len(diffeo_strengths), num_of_diffeo]
-        diffeos = get_diffeo_container(band_limit, band_limit, 1, diffeo_strengths, num_of_diffeo, res=inference_res)
+        diffeos = get_diffeo_container(band_limit, band_limit, 2, diffeo_strengths, num_of_diffeo, res=inference_res)
         accuracy, loss = get_accuracy_for_band(model, loss_fn, val_images, labels, diffeos, batch_size)
         acc_avg = t.mean(accuracy, dim = (0 , 2))
         loss_avg = t.mean(loss, dim = (0 , 2))
