@@ -120,7 +120,7 @@ class ModelsWithIMAGENET1K_V1:
       self.models.pop(name, None)
 
   def remove_ModelsWithOut224x224(self):
-    for name in subset_of_models.models.keys():
+    for name in self.models.keys():
       try:
         crop_size = torchvision.models.get_model_weights(name).IMAGENET1K_V1.transforms.keywords['crop_size']
         if crop_size != 224:
@@ -128,8 +128,3 @@ class ModelsWithIMAGENET1K_V1:
       except:
         print(f"{name} doesn't have crop_size")
         self.models.pop(name, None)
-
-# Example Usage
-subset_of_models = ModelsWithIMAGENET1K_V1()
-name = 'resnet18'
-model = subset_of_models.init_model(name) # Loads ResNet18
