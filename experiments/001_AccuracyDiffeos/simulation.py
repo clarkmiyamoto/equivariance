@@ -67,7 +67,7 @@ def get_accuracy_for_band(model,
   loss = []
   accuracy = []
 
-  for i, (image,label) in enumerate(zip(val_images, labels), total = num_of_images):
+  for i, (image,label) in enumerate(zip(val_images, labels)):
 
     distorted_list = diffeos(image.expand(total_batch, -1,-1,-1), in_inference = True)
 
