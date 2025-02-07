@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
     optimizer = get_optim(
         model=model,
-        **config.optimizer_options
+        **config.optimizer
     )
     criterion = nn.MSELoss()
 
