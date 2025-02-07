@@ -1,0 +1,10 @@
+{
+    "dropout_rate": 0.4,
+    "batch_size": 32,
+    "epochs": 1500,
+    "optimizer": {
+        "name": "Adam",
+        "lr": 1e-5
+    },
+    "dataset": "resnet18_imagenet1k_train"
+}
