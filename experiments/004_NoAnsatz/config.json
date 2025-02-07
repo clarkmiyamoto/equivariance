@@ -4,7 +4,7 @@
     "epochs": 1500,
     "optimizer": {
         "name": "Adam",
-        "lr": 1e-5
+        "lr": 1e-05
     },
     "dataset": "resnet18_imagenet1k_train"
 }
