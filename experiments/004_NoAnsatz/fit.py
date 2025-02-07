@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 from data.manager import get_DataLoader
 from train.optimizer import get_optim
