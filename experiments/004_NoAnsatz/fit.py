@@ -44,8 +44,8 @@ if __name__ == "__main__":
         project="diffeo",
         name=f"MLP",
         config={
-            "dropout_rate": 0.2,
-            "batch_size": 1,
+            "dropout_rate": 0.4,
+            "batch_size": 32,
             "epochs": 1500,
             "optimizer" : {
                 "name": "Adam",
