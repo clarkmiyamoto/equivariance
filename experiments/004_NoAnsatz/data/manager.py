@@ -26,7 +26,7 @@ def get_DataSet(dataset_name):
         raise ValueError('Dataset not supported')
 
     # Load dataset
-    dataset_path = os.path.join(root_data, f"{dataset_name}.pth")
+    dataset_path = os.path.join(root_data, f"{dataset_name}.pt")
     dataset = torch.load(dataset_path)
 
     # Partition into training & validation
