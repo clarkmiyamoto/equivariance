@@ -50,15 +50,10 @@ if __name__ == "__main__":
                 "name": "Adam",
                 "lr": 1e-5,
             },
-            "dataset": "ImageNet1k Train",
+            "dataset": "resnet18_imagenet1k_train",
         },
     )
     config = wandb.config
-
-    optimizer_options = {
-    }
-
-
 
     ### 
     # Code
@@ -117,7 +112,3 @@ if __name__ == "__main__":
             "val_loss": avg_val_loss,
             "epoch": epoch
         })
-
-        
-
-
