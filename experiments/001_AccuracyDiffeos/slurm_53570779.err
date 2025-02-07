@@ -1,0 +1,37 @@
+Downloading: "https://download.pytorch.org/models/vgg11_bn-6002323d.pth" to /home/cm6627/.cache/torch/hub/checkpoints/vgg11_bn-6002323d.pth
+  0%|          | 0.00/507M [00:00<?, ?B/s]  3%|▎         | 17.0M/507M [00:00<00:08, 60.8MB/s]  7%|▋         | 33.9M/507M [00:00<00:05, 92.4MB/s]  9%|▉         | 44.5M/507M [00:00<00:05, 87.3MB/s] 11%|█         | 53.8M/507M [00:00<00:07, 62.5MB/s] 13%|█▎        | 65.9M/507M [00:01<00:09, 48.9MB/s] 14%|█▍        | 71.6M/507M [00:01<00:09, 48.5MB/s] 16%|█▋        | 82.9M/507M [00:01<00:08, 53.9MB/s] 20%|██        | 102M/507M [00:01<00:05, 73.3MB/s]  22%|██▏       | 109M/507M [00:01<00:05, 69.6MB/s] 23%|██▎       | 119M/507M [00:02<00:09, 42.2MB/s] 25%|██▍       | 124M/507M [00:02<00:09, 44.1MB/s] 27%|██▋       | 135M/507M [00:02<00:07, 52.9MB/s] 28%|██▊       | 142M/507M [00:02<00:10, 38.2MB/s] 30%|███       | 153M/507M [00:02<00:07, 50.3MB/s] 34%|███▎      | 170M/507M [00:03<00:07, 48.5MB/s] 37%|███▋      | 187M/507M [00:03<00:06, 48.6MB/s] 40%|████      | 203M/507M [00:03<00:05, 60.4MB/s] 42%|████▏     | 210M/507M [00:04<00:07, 39.0MB/s] 44%|████▎     | 221M/507M [00:04<00:07, 37.8MB/s] 47%|████▋     | 237M/507M [00:04<00:05, 48.2MB/s] 48%|████▊     | 243M/507M [00:05<00:06, 45.9MB/s] 50%|█████     | 254M/507M [00:05<00:04, 54.3MB/s] 51%|█████▏    | 260M/507M [00:05<00:05, 50.1MB/s] 54%|█████▎    | 272M/507M [00:05<00:07, 35.0MB/s] 57%|█████▋    | 288M/507M [00:06<00:05, 42.8MB/s] 60%|██████    | 305M/507M [00:06<00:04, 52.6MB/s] 61%|██████▏   | 311M/507M [00:06<00:04, 47.4MB/s] 64%|██████▎   | 323M/507M [00:06<00:03, 50.0MB/s] 65%|██████▍   | 328M/507M [00:06<00:04, 45.1MB/s] 67%|██████▋   | 339M/507M [00:07<00:03, 46.5MB/s] 69%|██████▉   | 352M/507M [00:07<00:02, 61.8MB/s] 71%|███████   | 359M/507M [00:07<00:03, 48.8MB/s] 72%|███████▏  | 365M/507M [00:07<00:03, 47.2MB/s] 73%|███████▎  | 372M/507M [00:07<00:03, 39.1MB/s] 74%|███████▍  | 377M/507M [00:08<00:04, 31.4MB/s] 77%|███████▋  | 391M/507M [00:08<00:02, 42.0MB/s] 78%|███████▊  | 398M/507M [00:08<00:02, 41.7MB/s] 80%|████████  | 408M/507M [00:08<00:02, 37.1MB/s] 84%|████████▍ | 425M/507M [00:09<00:01, 44.7MB/s] 87%|████████▋ | 440M/507M [00:09<00:01, 56.4MB/s] 89%|████████▉ | 451M/507M [00:09<00:00, 64.7MB/s] 91%|█████████ | 459M/507M [00:09<00:00, 52.9MB/s] 94%|█████████▎| 474M/507M [00:09<00:00, 61.6MB/s] 95%|█████████▍| 481M/507M [00:10<00:00, 40.0MB/s] 97%|█████████▋| 491M/507M [00:10<00:00, 49.2MB/s] 98%|█████████▊| 498M/507M [00:10<00:00, 44.2MB/s]100%|██████████| 507M/507M [00:10<00:00, 49.3MB/s]
+Traceback (most recent call last):
+  File "/scratch/cm6627/equivariance/experiments/001_AccuracyDiffeos/simulation.py", line 140, in <module>
+    ref_out = model(val_images) 
+              ^^^^^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torchvision/models/vgg.py", line 66, in forward
+    x = self.features(x)
+        ^^^^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/modules/batchnorm.py", line 193, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "/ext3/miniforge3/lib/python3.12/site-packages/torch/nn/functional.py", line 2812, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 23.93 GiB. GPU 0 has a total capacity of 44.48 GiB of which 18.74 GiB is free. Including non-PyTorch memory, this process has 25.74 GiB memory in use. Of the allocated memory 25.54 GiB is allocated by PyTorch, and 8.30 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

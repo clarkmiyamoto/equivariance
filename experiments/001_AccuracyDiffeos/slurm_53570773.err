@@ -1,0 +1,2 @@
+Downloading: "https://download.pytorch.org/models/squeezenet1_0-b66bff10.pth" to /home/cm6627/.cache/torch/hub/checkpoints/squeezenet1_0-b66bff10.pth
+  0%|          | 0.00/4.78M [00:00<?, ?B/s]100%|██████████| 4.78M/4.78M [00:00<00:00, 181MB/s]

@@ -1,0 +1,20 @@
+cuda
+maskrcnn_resnet50_fpn doesn't have crop_size
+quantized_googlenet doesn't have crop_size
+quantized_inception_v3 doesn't have crop_size
+quantized_mobilenet_v2 doesn't have crop_size
+quantized_mobilenet_v3_large doesn't have crop_size
+quantized_resnet18 doesn't have crop_size
+quantized_resnet50 doesn't have crop_size
+quantized_resnext101_32x8d doesn't have crop_size
+quantized_resnext101_64x4d doesn't have crop_size
+quantized_shufflenet_v2_x0_5 doesn't have crop_size
+quantized_shufflenet_v2_x1_0 doesn't have crop_size
+quantized_shufflenet_v2_x1_5 doesn't have crop_size
+quantized_shufflenet_v2_x2_0 doesn't have crop_size
+raft_large doesn't have crop_size
+raft_small doesn't have crop_size
+regnet_y_128gf doesn't have crop_size
+vit_h_14 doesn't have crop_size
+model & dataset setup finished
+reference computed
