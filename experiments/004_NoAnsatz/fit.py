@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-from train.data import get_DataLoader
+from data.manager import get_DataLoader
 from train.optimizer import get_optim
 
 
