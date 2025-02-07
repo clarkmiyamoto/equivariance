@@ -7,7 +7,13 @@ from data.manager import get_DataLoader
 from train.optimizer import get_optim
 
 import wandb
+import json
 
+def load_config():
+    file_path = './config.json'
+    with open(file_path, "r") as f:
+        config = json.load(f)
+    return config
 
 class Ginv(nn.Module):
   def __init__(self, dropout_rate):
@@ -43,16 +49,7 @@ if __name__ == "__main__":
     wandb.init(
         project="diffeo",
         name=f"MLP",
-        config={
-            "dropout_rate": 0.4,
-            "batch_size": 32,
-            "epochs": 1500,
-            "optimizer" : {
-                "name": "Adam",
-                "lr": 1e-5,
-            },
-            "dataset": "resnet18_imagenet1k_train",
-        },
+        config=load_config(),
     )
     config = wandb.config
 
