@@ -10,7 +10,7 @@ import wandb
 
 class Ginv(nn.Module):
   def __init__(self, dropout_rate):
-    super(Decoder, self).__init__()
+    super(Ginv, self).__init__()
 
     # Model
     self.encoder = nn.Sequential(
