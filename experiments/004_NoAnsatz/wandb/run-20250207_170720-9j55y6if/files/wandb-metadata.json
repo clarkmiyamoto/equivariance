@@ -1,0 +1,88 @@
+{
+  "os":  "Linux-5.14.0-284.86.1.el9_2.x86_64-x86_64-with-glibc2.35",
+  "python":  "CPython 3.12.7",
+  "startedAt":  "2025-02-07T22:07:20.680890Z",
+  "program":  "/scratch/cm6627/equivariance/experiments/004_NoAnsatz/fit.py",
+  "codePath":  "experiments/004_NoAnsatz/fit.py",
+  "git":  {
+    "remote":  "git@github.com:clarkmiyamoto/equivariance.git",
+    "commit":  "808db702829114b1a4a3ffe02dab3b81777e7756"
+  },
+  "email":  "cm6627@nyu.edu",
+  "root":  "/scratch/cm6627/equivariance/experiments/004_NoAnsatz",
+  "host":  "gr027.hpc.nyu.edu",
+  "executable":  "/ext3/miniforge3/bin/python",
+  "codePathLocal":  "fit.py",
+  "cpu_count":  48,
+  "cpu_count_logical":  48,
+  "gpu":  "Quadro RTX 8000",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "145004036096",
+      "used":  "145004036096"
+    }
+  },
+  "memory":  {
+    "total":  "404880052224"
+  },
+  "cpu":  {
+    "count":  48,
+    "countLogical":  48
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "Quadro RTX 8000",
+      "memoryTotal":  "48318382080",
+      "cudaCores":  4608,
+      "architecture":  "Turing"
+    }
+  ],
+  "slurm":  {
+    "cluster_name":  "(null)",
+    "conf":  "/opt/slurm/etc/slurm.conf",
+    "cpus_on_node":  "8",
+    "cpus_per_task":  "8",
+    "export_env":  "NONE",
+    "get_user_env":  "1",
+    "gpus_on_node":  "1",
+    "gpus_per_node":  "1",
+    "gtids":  "0",
+    "job_account":  "users",
+    "job_cpus_per_node":  "8",
+    "job_end_time":  "1738976828",
+    "job_gid":  "4131339",
+    "job_gpus":  "0",
+    "job_id":  "57043520",
+    "job_name":  "Diffeo",
+    "job_nodelist":  "gr027",
+    "job_num_nodes":  "1",
+    "job_partition":  "rtx8000",
+    "job_qos":  "gpu48",
+    "job_start_time":  "1738966028",
+    "job_uid":  "4131339",
+    "job_user":  "cm6627",
+    "jobid":  "57043520",
+    "jobtmp":  "/state/partition1/job-57043520",
+    "localid":  "0",
+    "mem_per_node":  "32768",
+    "nnodes":  "1",
+    "nodeid":  "0",
+    "nodelist":  "gr027",
+    "nprocs":  "1",
+    "ntasks":  "1",
+    "ntasks_per_node":  "1",
+    "prio_process":  "0",
+    "procid":  "0",
+    "script_context":  "prolog_task",
+    "submit_dir":  "/scratch/cm6627/equivariance/experiments/004_NoAnsatz",
+    "submit_host":  "gr030.hpc.nyu.edu",
+    "task_pid":  "3868519",
+    "tasks_per_node":  "1",
+    "tmpdir":  "/state/partition1/job-57043520",
+    "topology_addr":  "gr027",
+    "topology_addr_pattern":  "node",
+    "tres_per_task":  "cpu:8"
+  },
+  "cudaVersion":  "12.2"
+}

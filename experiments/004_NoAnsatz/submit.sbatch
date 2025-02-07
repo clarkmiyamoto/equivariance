@@ -3,13 +3,14 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=8
-#SBATCH --time=3:00:00
+#SBATCH --time=0:40:00
 #SBATCH --mem=32GB
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=Diffeo
 #SBATCH --mail-type=END
 #SBATCH --mail-user=cm6627@nyu.edu
-#SBATCH --error=slurm_%j.err
+#SBATCH --output=slurm/slurm_%j.out
+#SBATCH --error=slurm/slurm_%j.err
 
 module purge
 

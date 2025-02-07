@@ -1,6 +1,6 @@
 {
-    "dropout_rate": 0.4,
-    "batch_size": 32,
+    "dropout_rate": 0.6,
+    "batch_size": 1,
     "epochs": 1500,
     "optimizer": {
         "name": "Adam",
