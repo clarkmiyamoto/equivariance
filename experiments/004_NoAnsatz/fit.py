@@ -5,6 +5,8 @@ import torch.optim as optim
 from data.manager import get_DataLoader
 from train.optimizer import get_optim
 
+import wandb
+
 
 class Ginv(nn.Module):
   def __init__(self, dropout_rate):
