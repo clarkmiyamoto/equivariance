@@ -1,9 +1,12 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+
+torch.manual_seed(42)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 from data.manager import get_DataLoader
+from model.selector import get_model
 from train.optimizer import get_optim
 from train.scheduler import get_scheduler
 from train.tracker import get_gradient_norm, get_update_norm
@@ -24,42 +27,6 @@ def load_config():
     config = json.loads(args.config_json)
     return config
 
-class Ginv(nn.Module):
-  def __init__(self, dropout_rate):
-    super(Ginv, self).__init__()
-
-    # Model
-    self.encoder = nn.Sequential(
-        nn.Linear(512, 1024),
-        nn.ReLU(),
-        nn.Dropout(dropout_rate),
-
-        nn.Linear(1024, 1024),
-        nn.ReLU(),
-        nn.Dropout(dropout_rate),
-
-        nn.Linear(1024, 1024),
-        nn.ReLU(),
-        nn.Dropout(dropout_rate),
-
-        nn.Linear(1024, 512),
-        nn.ReLU(),
-        nn.Dropout(dropout_rate),
-
-        nn.Linear(512, 512),
-        nn.ReLU(),
-        nn.Dropout(dropout_rate),
-
-        nn.Linear(512, 512),
-        nn.ReLU(),
-        nn.Dropout(dropout_rate),
-        
-        nn.Linear(512, 512),
-    )
-
-  def forward(self, x):
-    x = self.encoder(x)
-    return x
 
 
 if __name__ == "__main__":
@@ -79,7 +46,7 @@ if __name__ == "__main__":
     # ---- Initalization ----
     train_loader, val_loader = get_DataLoader(config.batch_size, config.dataset)
 
-    model = Ginv(dropout_rate=config.dropout_rate)
+    model = get_model(str(wandb.run.name))(**config.model)
     model.to(device)
 
     optimizer = get_optim(
