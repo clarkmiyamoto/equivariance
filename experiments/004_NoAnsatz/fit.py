@@ -25,7 +25,10 @@ def load_config():
     )
     args = parser.parse_args()
     config = json.loads(args.config_json)
-    return config
+
+    model_name = config["model"].pop("name", None) if "model" in config else 'Not Specified'
+
+    return config, model_name
 
 
 
@@ -33,10 +36,12 @@ if __name__ == "__main__":
     ##################
     # --- Config --- #
     ##################
+
+    config_dict, model_name = load_config()
     wandb.init(
         project="diffeo",
-        name=f"MLP",
-        config=load_config(),
+        name=model_name,
+        config=config_dict,
     )
     config = wandb.config
 
