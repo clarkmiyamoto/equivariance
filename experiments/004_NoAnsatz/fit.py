@@ -17,9 +17,6 @@ import argparse
 
 
 def load_config():
-    """
-    """
-    ### Parse argument for WeightAndBias config
     parser = argparse.ArgumentParser(description="Config JSON in String Form")
     parser.add_argument(
         "config_json",
@@ -28,23 +25,18 @@ def load_config():
     )
     args = parser.parse_args()
     config = json.loads(args.config_json)
+    return config
 
-    ## Separate out "model.name"
-    model_name = config["model"].pop("name", None) if "model" in config else 'Model Not Specified'
-    
-    return config, model_name
 
 
 if __name__ == "__main__":
     ##################
     # --- Config --- #
     ##################
-    config_dict, model_name = load_config()
-        
     wandb.init(
         project="diffeo",
-        name=model_name,
-        config=config_dict,
+        name=f"MLP",
+        config=load_config(),
     )
     config = wandb.config
 

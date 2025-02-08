@@ -1,6 +1,0 @@
-WARNING: Could not find any nv files on this host!
-Traceback (most recent call last):
-  File "/scratch/cm6627/equivariance/experiments/004_NoAnsatz/fit.py", line 40, in <module>
-    name=config_dict.model['name'],
-         ^^^^^^^^^^^^^^^^^
-AttributeError: 'dict' object has no attribute 'model'
