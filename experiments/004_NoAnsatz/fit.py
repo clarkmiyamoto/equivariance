@@ -8,11 +8,18 @@ from train.optimizer import get_optim
 
 import wandb
 import json
+import argparse
+
 
 def load_config():
-    file_path = './config.json'
-    with open(file_path, "r") as f:
-        config = json.load(f)
+    parser = argparse.ArgumentParser(description="Config JSON in String Form")
+    parser.add_argument(
+        "config_json",
+        type=str,
+        help="JSON string with hyperparameters (e.g. '{\"epochs\":10, ...}')"
+    )
+    args = parser.parse_args()
+    config = json.loads(args.config_json)
     return config
 
 class Ginv(nn.Module):
