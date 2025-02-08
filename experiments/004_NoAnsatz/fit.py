@@ -5,6 +5,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 from data.manager import get_DataLoader
 from train.optimizer import get_optim
+from train.scheduler import get_scheduler
 
 import wandb
 import json
@@ -72,6 +73,11 @@ if __name__ == "__main__":
         model=model,
         **config.optimizer
     )
+    scheduler = get_scheduler(
+        optimizer=optimizer,
+        **config.scheduler
+    )
+    
     criterion = nn.MSELoss()
 
     for epoch in range(config.epochs):
@@ -94,9 +100,6 @@ if __name__ == "__main__":
 
             total_train_loss += loss.item()
 
-        # Average training loss over the epoch
-        avg_train_loss = total_train_loss / len(train_loader)
-
         # ---- Validation ----
         model.eval()
         total_val_loss = 0.0
@@ -109,9 +112,13 @@ if __name__ == "__main__":
                 loss = criterion(predictions, batch_Y)
                 total_val_loss += loss.item()
 
-        avg_val_loss = total_val_loss / len(val_loader)
+        # ---- Step ----
+        scheduler.step()
 
         # ---- Logging ----
+        avg_train_loss = total_train_loss / len(train_loader)
+        avg_val_loss = total_val_loss / len(val_loader)
+
         wandb.log({
             "train_loss": avg_train_loss,
             "val_loss": avg_val_loss,
