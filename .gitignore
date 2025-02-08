@@ -1,6 +1,7 @@
 # PyTorch
 *.pt
-wanb/
+**wanb/
+**slurm/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
