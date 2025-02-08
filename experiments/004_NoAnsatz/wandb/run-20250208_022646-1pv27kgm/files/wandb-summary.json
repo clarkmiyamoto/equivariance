@@ -1,0 +1,1 @@
+{"update_norm":0,"_timestamp":1.7390029606380656e+09,"_step":1499,"_runtime":3353.450057111,"_wandb":{"runtime":3353},"epoch":1499,"grad_norm":0.6302244748666892,"val_loss":0.3968204472746168,"train_loss":0.3421921477868007,"current_lr":0.0001}
