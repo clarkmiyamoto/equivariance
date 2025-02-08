@@ -6,6 +6,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 from data.manager import get_DataLoader
 from train.optimizer import get_optim
 from train.scheduler import get_scheduler
+from train.tracker import get_gradient_norm, get_update_norm
 
 import wandb
 import json
@@ -50,10 +51,9 @@ class Ginv(nn.Module):
 
 
 if __name__ == "__main__":
-    ###
-    # Config
-    ###
-
+    ##################
+    # --- Config --- #
+    ##################
     wandb.init(
         project="diffeo",
         name=f"MLP",
@@ -61,9 +61,10 @@ if __name__ == "__main__":
     )
     config = wandb.config
 
-    ### 
-    # Code
-    ###
+    ################
+    # --- Code --- #
+    ################
+    # ---- Initalization ----
     train_loader, val_loader = get_DataLoader(config.batch_size, config.dataset)
 
     model = Ginv(dropout_rate=config.dropout_rate)
@@ -77,9 +78,12 @@ if __name__ == "__main__":
         optimizer=optimizer,
         **config.scheduler
     )
-    
     criterion = nn.MSELoss()
 
+    # ---- Tracking Parameters ----
+    
+
+    # ---- Run ----
     for epoch in range(config.epochs):
         # ---- Training ----
         model.train()
@@ -112,15 +116,27 @@ if __name__ == "__main__":
                 loss = criterion(predictions, batch_Y)
                 total_val_loss += loss.item()
 
-        # ---- Step ----
-        scheduler.step()
+        
 
         # ---- Logging ----
         avg_train_loss = total_train_loss / len(train_loader)
         avg_val_loss = total_val_loss / len(val_loader)
 
+        current_lr = optimizer.param_groups[0]['lr']
+        
+        grad_norm = get_gradient_norm(model)
+        
+        prev_params = [param.clone().detach() for param in model.parameters()]
+        update_norm = get_update_norm(model=model, prev_params=prev_params)
+        
+        # ---- Step ----
+        scheduler.step(avg_val_loss)
+        
         wandb.log({
             "train_loss": avg_train_loss,
             "val_loss": avg_val_loss,
-            "epoch": epoch
+            "epoch": epoch,
+            "current_lr": current_lr,
+            "grad_norm": grad_norm,
+            "update_norm": update_norm,
         })
