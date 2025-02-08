@@ -30,7 +30,19 @@ class Ginv(nn.Module):
 
     # Model
     self.encoder = nn.Sequential(
-        nn.Linear(512, 512),
+        nn.Linear(512, 1024),
+        nn.ReLU(),
+        nn.Dropout(dropout_rate),
+
+        nn.Linear(1024, 1024),
+        nn.ReLU(),
+        nn.Dropout(dropout_rate),
+
+        nn.Linear(1024, 1024),
+        nn.ReLU(),
+        nn.Dropout(dropout_rate),
+
+        nn.Linear(1024, 512),
         nn.ReLU(),
         nn.Dropout(dropout_rate),
 
@@ -41,7 +53,7 @@ class Ginv(nn.Module):
         nn.Linear(512, 512),
         nn.ReLU(),
         nn.Dropout(dropout_rate),
-
+        
         nn.Linear(512, 512),
     )
 
