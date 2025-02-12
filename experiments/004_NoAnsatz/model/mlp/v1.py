@@ -7,6 +7,18 @@ class Model(nn.Module):
     activation = nn.ReLU()
     # Model
     self.encoder = nn.Sequential(
+        nn.Linear(512, 1024),
+        activation,
+
+        nn.Linear(1024, 1024),
+        activation,
+        
+        nn.Linear(1024, 1024),
+        activation,
+
+        nn.Linear(1024, 512),
+        activation,
+
         nn.Linear(512, 512),
         activation,
 
