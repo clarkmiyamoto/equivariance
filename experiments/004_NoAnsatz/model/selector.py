@@ -2,6 +2,7 @@ import importlib
 
 
 MODEL_REGISTRY = {
+    'mlp_v1': 'model.mlp.v1',
     'mlp_v2': 'model.mlp.v2',
 }
 

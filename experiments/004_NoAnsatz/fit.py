@@ -114,7 +114,8 @@ if __name__ == "__main__":
         update_norm = get_update_norm(model=model, prev_params=prev_params)
         
         # ---- Step ----
-        scheduler.step(avg_val_loss)
+        if scheduler is not None:
+            scheduler.step(avg_val_loss)
         
         wandb.log({
             "train_loss": avg_train_loss,

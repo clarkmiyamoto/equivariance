@@ -1,0 +1,75 @@
+{
+  "os":  "Linux-5.14.0-284.86.1.el9_2.x86_64-x86_64-with-glibc2.35",
+  "python":  "CPython 3.12.7",
+  "startedAt":  "2025-02-12T18:43:45.485807Z",
+  "args":  [
+    "{\"batch_size\": 64, \"epochs\": 1500, \"model\": {\"name\": \"MLP_v1\"}, \"optimizer\": {\"name\": \"Adam\", \"lr\": 0.0001}, \"scheduler\": {\"name\": \"None\"}, \"dataset\": \"resnet18_layer13_imagenet1ktrain_goldfishonly\"}"
+  ],
+  "program":  "/scratch/cm6627/equivariance/experiments/004_NoAnsatz/fit.py",
+  "codePath":  "experiments/004_NoAnsatz/fit.py",
+  "git":  {
+    "remote":  "git@github.com:clarkmiyamoto/equivariance.git",
+    "commit":  "6437789ea5f37aacae9f31e59ec2d0addf4b0676"
+  },
+  "email":  "cm6627@nyu.edu",
+  "root":  "/scratch/cm6627/equivariance/experiments/004_NoAnsatz",
+  "host":  "cm048.hpc.nyu.edu",
+  "executable":  "/ext3/miniforge3/bin/python",
+  "codePathLocal":  "fit.py",
+  "cpu_count":  48,
+  "cpu_count_logical":  48,
+  "disk":  {
+    "/":  {
+      "total":  "145004036096",
+      "used":  "145004036096"
+    }
+  },
+  "memory":  {
+    "total":  "404577267712"
+  },
+  "cpu":  {
+    "count":  48,
+    "countLogical":  48
+  },
+  "slurm":  {
+    "cluster_name":  "(null)",
+    "conf":  "/opt/slurm/etc/slurm.conf",
+    "cpus_on_node":  "1",
+    "export_env":  "NONE",
+    "get_user_env":  "1",
+    "gtids":  "0",
+    "job_account":  "users",
+    "job_cpus_per_node":  "1",
+    "job_end_time":  "1739389409",
+    "job_gid":  "4131339",
+    "job_id":  "57190410",
+    "job_name":  "submit.sbatch",
+    "job_nodelist":  "cm048",
+    "job_num_nodes":  "1",
+    "job_partition":  "short",
+    "job_qos":  "cpu48",
+    "job_start_time":  "1739385809",
+    "job_uid":  "4131339",
+    "job_user":  "cm6627",
+    "jobid":  "57190410",
+    "jobtmp":  "/state/partition1/job-57190410",
+    "localid":  "0",
+    "mem_per_node":  "2048",
+    "nnodes":  "1",
+    "nodeid":  "0",
+    "nodelist":  "cm048",
+    "nprocs":  "8",
+    "ntasks":  "8",
+    "ntasks_per_node":  "8",
+    "prio_process":  "0",
+    "procid":  "0",
+    "script_context":  "prolog_task",
+    "submit_dir":  "/scratch/cm6627/equivariance/experiments/004_NoAnsatz",
+    "submit_host":  "cm001.hpc.nyu.edu",
+    "task_pid":  "3612238",
+    "tasks_per_node":  "8",
+    "tmpdir":  "/state/partition1/job-57190410",
+    "topology_addr":  "cm048",
+    "topology_addr_pattern":  "node"
+  }
+}
