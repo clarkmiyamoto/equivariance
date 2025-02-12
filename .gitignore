@@ -1,6 +1,6 @@
 # PyTorch
 *.pt
-experiments/004/wanb/
+experiments/004/wandb/
 experiments/004/slurm/
 
 # Byte-compiled / optimized / DLL files
