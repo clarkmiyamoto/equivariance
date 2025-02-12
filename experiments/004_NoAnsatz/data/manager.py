@@ -6,13 +6,12 @@ import os
 
 root_data = os.path.dirname(os.path.abspath(__file__))
 __accepted_dataset__ = [
-    'resnet18_imagenet1k_train', 
-    'resnet18_imagenet1k_val'
+   'resnet18_layer13_imagenet1ktrain_goldfishonly',
 ]
 
 
-num_workers = 1
-train_val_ratio = 0.8 # 1 = all training, 0 = all validation
+num_workers = 4
+train_val_ratio = 0.85 # 1 = all training, 0 = all validation
 
 
 def get_DataSet(dataset_name):
