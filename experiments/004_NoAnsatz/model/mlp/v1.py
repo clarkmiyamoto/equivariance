@@ -4,7 +4,7 @@ class Model(nn.Module):
   def __init__(self):
     super(Model, self).__init__()
 
-    activation = nn.ReLU()
+    activation = nn.LeakyReLU(0.1)
     # Model
     self.encoder = nn.Sequential(
         nn.Linear(512, 1024),
@@ -24,7 +24,7 @@ class Model(nn.Module):
 
         nn.Linear(512, 512),
         activation,
-        
+
         nn.Linear(512, 512),
     )
 
